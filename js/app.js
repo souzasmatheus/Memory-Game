@@ -26,6 +26,13 @@ function shuffle(array) {
     return array;
 }
 
+// Create HTMl for each card
+function createCard () {
+	let shuffledList = shuffle(cards);
+	shuffledList.forEach(function(card) {
+		$(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+	})
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:

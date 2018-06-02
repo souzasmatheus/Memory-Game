@@ -30,9 +30,10 @@ function shuffle(array) {
 function createCard () {
 	let shuffledList = shuffle(cards);
 	shuffledList.forEach(function(card) {
-		$(".deck").append('<li><i class="card fa ' + card + '"></i></li>');
+		$(".deck").append('<li class="card"><i class="fa ' + card + '"></i></li>');
 	})
 }
+
 
 /*
  * set up the event listener for a card. If a card is clicked:

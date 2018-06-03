@@ -30,6 +30,7 @@ function shuffle(array) {
 function createCard () {
 		$(".deck").append('<li class="card"><i class="fa ${card}"></i></li>');
 }
+
 // Distribute cards on HTML
 function giveCards(){
     shuffle(cards.forEach(createCard));

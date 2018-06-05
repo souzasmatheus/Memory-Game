@@ -35,8 +35,16 @@ function giveCards() {
 	});
 }
 
+// Things that happen when a card is clicked:
+function whenClicked() {
+	$(".card").on("click", function() {
+		$(this).toggleClass("open show");
+	});
+}
+
 // Call first functions
 giveCards();
+whenClicked();
 
 /*
  * set up the event listener for a card. If a card is clicked:

@@ -4,7 +4,7 @@
  // Global scope
 const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt",
  "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
-
+let openCard = [];
 
 /*
  * Display the cards on the page
@@ -35,16 +35,8 @@ function giveCards() {
 	});
 }
 
-// Things that happen when a card is clicked:
-function whenClicked() {
-	$(".card").on("click", function() {
-		$(this).toggleClass("open show");
-	});
-}
-
 // Call first functions
 giveCards();
-whenClicked();
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -56,3 +48,19 @@ whenClicked();
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+// Logic to find matching cards
+function findMatch() {
+    // Show cards on click
+    $(".card").on("click", function() {
+    	if ($(this).hasClass("open show")) { return; }
+    	$(this).toggleClass("open show");
+    	openCard.push($(this));
+    if (openCard.length === 2 && openCard[0].children().hasClass(openCard[1].children().attr("class"))) {
+    	openCard[0].addClass("match");
+    	openCard[1].addClass("match");
+    }
+    })
+}
+
+findMatch();

@@ -59,6 +59,8 @@ function findMatch() {
     if (openCard.length === 2 && openCard[0].children().hasClass(openCard[1].children().attr("class"))) {
     	openCard[0].addClass("match");
     	openCard[1].addClass("match");
+    	openCard.pop(openCard[1]);
+    	openCard.pop(openCard[0]);
     }
     })
 }

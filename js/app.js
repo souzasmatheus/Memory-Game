@@ -48,8 +48,12 @@ function giveCards() {
 	});
 }
 
-// Call first functions
-giveCards();
+// Reload function
+function reloadPage() {
+	$("div .restart").click(function() {
+    	location.reload();
+	});
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -92,4 +96,7 @@ function findMatch() {
     })
 }
 
+// Call first functions
+giveCards();
 findMatch();
+reloadPage();

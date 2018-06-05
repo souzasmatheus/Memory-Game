@@ -15,6 +15,17 @@ let movements = 0;
  *   - add each card's HTML to the page
  */
 
+// Update moves
+function moves() {
+	movements = movements + 1;
+	$("span.remove").remove();
+	if (movements === 1) {
+		$("span.moves").html(movements + " Move");
+	} else {
+		$("span.moves").html(movements + " Moves");
+	}
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -58,7 +69,7 @@ function findMatch() {
     	if ($(this).hasClass("open show")) { return; }
     	$(this).toggleClass("open show");
     	openCard.push($(this));
-    	movements = movements + 1;
+    	moves();
     	let first = openCard[0];
     	let second = openCard[1];
     if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {

@@ -28,14 +28,11 @@ function shuffle(array) {
     return array;
 }
 
-// Create HTMl for each card
-function createCard () {
-		$(".deck").append('<li class="card"><i class="fa ${card}"></i></li>');
-}
-
-// Distribute cards on HTML
-function giveCards(){
-    shuffle(cards.forEach(createCard));
+// Shuffle and distribute cards on HTML
+function giveCards() {
+	shuffle(cards).forEach(function createCard(x) {
+		$(".deck").append(`<li class="card"><i class="fa ${x}"></i></li>`);
+	});
 }
 
 // Call first functions

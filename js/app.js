@@ -5,6 +5,7 @@
 const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt",
  "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 let openCard = [];
+let matchedCard = [];
 
 /*
  * Display the cards on the page
@@ -49,11 +50,6 @@ giveCards();
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-/*function removalTime() {
-	openCard[0].toggleClass("open show");
-    openCard[1].toggleClass("open show");
-}*/
-
 // Logic to find matching cards
 function findMatch() {
     // Show cards on click
@@ -68,15 +64,17 @@ function findMatch() {
     	second.addClass("match");
     	openCard.pop(second);
     	openCard.pop(first);
+    	matchedCard.push(second);
+    	matchedCard.push(first);
     } else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
     	setTimeout(function() {
     		first.toggleClass("open show")
-    	}, 1200);
+    	}, 1000);
     	setTimeout(function() {
     		second.toggleClass("open show")
-    	}, 1200);
-    	openCard.pop(openCard[1]);
-    	openCard.pop(openCard[0]);
+    	}, 1000);
+    	openCard.pop(second);
+    	openCard.pop(first);
     }
     })
 }

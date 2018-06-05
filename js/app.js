@@ -6,6 +6,7 @@ const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o
  "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 let openCard = [];
 let matchedCard = [];
+let movements = 0;
 
 /*
  * Display the cards on the page
@@ -57,6 +58,7 @@ function findMatch() {
     	if ($(this).hasClass("open show")) { return; }
     	$(this).toggleClass("open show");
     	openCard.push($(this));
+    	movements = movements + 1;
     	let first = openCard[0];
     	let second = openCard[1];
     if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {

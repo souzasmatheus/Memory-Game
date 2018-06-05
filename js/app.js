@@ -49,6 +49,11 @@ giveCards();
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+/*function removalTime() {
+	openCard[0].toggleClass("open show");
+    openCard[1].toggleClass("open show");
+}*/
+
 // Logic to find matching cards
 function findMatch() {
     // Show cards on click
@@ -56,9 +61,20 @@ function findMatch() {
     	if ($(this).hasClass("open show")) { return; }
     	$(this).toggleClass("open show");
     	openCard.push($(this));
-    if (openCard.length === 2 && openCard[0].children().hasClass(openCard[1].children().attr("class"))) {
-    	openCard[0].addClass("match");
-    	openCard[1].addClass("match");
+    	let first = openCard[0];
+    	let second = openCard[1];
+    if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
+    	first.addClass("match");
+    	second.addClass("match");
+    	openCard.pop(second);
+    	openCard.pop(first);
+    } else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
+    	setTimeout(function() {
+    		first.toggleClass("open show")
+    	}, 1200);
+    	setTimeout(function() {
+    		second.toggleClass("open show")
+    	}, 1200);
     	openCard.pop(openCard[1]);
     	openCard.pop(openCard[0]);
     }

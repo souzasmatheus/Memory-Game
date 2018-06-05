@@ -1,8 +1,10 @@
 /*
  * Create a list that holds all of your cards
  */
+ // Global scope
 const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt",
  "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
+
 
 /*
  * Display the cards on the page
@@ -36,9 +38,8 @@ function giveCards(){
     shuffle(cards.forEach(createCard));
 }
 
-$(document).ready(function(){
-    giveCards();
-});
+// Call first functions
+giveCards();
 
 /*
  * set up the event listener for a card. If a card is clicked:

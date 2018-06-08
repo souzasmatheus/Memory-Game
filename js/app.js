@@ -15,6 +15,16 @@ let movements = 0;
  *   - add each card's HTML to the page
  */
 
+function stars() {
+	if (movements > 0 && movements < 19) {
+    	return;
+    } else if (movements >= 19 && movements <= 22) {
+    	$("#good i").removeClass("fa-star");
+    } else if (movements > 22) {
+    	$("#average i").removeClass("fa-star");
+    }
+}
+
 // Update moves
 function moves() {
 	movements = movements + 1;
@@ -23,8 +33,16 @@ function moves() {
 		$("span.moves").html(movements + " Move");
 	} else {
 		$("span.moves").html(movements + " Moves");
-	}
+	};
+	stars();
 }
+
+// Update stars
+//function stars() {
+//	if (movements >= 18 && movements <== 22) {
+//		$("li#good").remove();
+//	}
+//}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -65,6 +83,7 @@ function findMatch() {
     	moves();
     	let first = openCard[0];
     	let second = openCard[1];
+    	//const startingTime = performance.now()
     if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
     	first.addClass("match");
     	second.addClass("match");
@@ -85,9 +104,11 @@ function findMatch() {
     })
 }
 
-/* Check victory
-function checkGame() {
-	if (matchedCard.length === 16) 
+// Check victory
+/*function checkGame() {
+	if (matchedCard.length === 16) {
+		const endingTime = performance.now();
+	}
 }*/
 
 // Call first functions

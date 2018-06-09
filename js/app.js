@@ -7,6 +7,7 @@ const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o
 let openCard = [];
 let matchedCard = [];
 let movements = 0;
+let clicks = 0;
 
 /*
  * Display the cards on the page
@@ -37,13 +38,6 @@ function moves() {
 	stars();
 }
 
-// Update stars
-//function stars() {
-//	if (movements >= 18 && movements <== 22) {
-//		$("li#good").remove();
-//	}
-//}
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
@@ -73,6 +67,18 @@ function reloadPage() {
 	});
 }
 
+// Function that sets timer
+function startTimer() {
+   	if (clicks === 1) {
+       	var sec = 0;
+       	function time ( val ) { return val > 9 ? val : "0" + val; }
+       	timer = setInterval( function(){
+       		$(".seconds").html(time(++sec % 60));
+       		$(".minutes").html(time(parseInt(sec / 60, 10)));
+      	}, 1000);
+   	}
+}
+
 // Logic to find matching cards
 function findMatch() {
     // Show cards on click
@@ -80,7 +86,9 @@ function findMatch() {
     	if ($(this).hasClass("open show")) { return; }
     	$(this).toggleClass("open show");
     	openCard.push($(this));
+    	clicks += 1;
     	moves();
+    	startTimer();
     	let first = openCard[0];
     	let second = openCard[1];
     	//const startingTime = performance.now()
@@ -103,13 +111,6 @@ function findMatch() {
     }
     })
 }
-
-// Check victory
-/*function checkGame() {
-	if (matchedCard.length === 16) {
-		const endingTime = performance.now();
-	}
-}*/
 
 // Call first functions
 giveCards();

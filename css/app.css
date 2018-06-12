@@ -115,3 +115,17 @@ h1 {
     display: inline-block;
     margin: 0 5px 0 0;
 }
+
+.message {
+    width: 40%;
+    height: 40%;
+    z-index: 1;
+    display: none;
+    position: relative;
+    bottom: 522px;
+    margin: 0 auto;
+    background: #ffffff url('../img/geometry2.png');
+    text-align: center;
+    padding: 60px;
+    border-radius: 8px;
+}

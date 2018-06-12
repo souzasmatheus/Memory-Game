@@ -77,7 +77,7 @@ function startTimer() {
        		$(".minutes").html(time(parseInt(sec / 60, 10)));
       	}, 1000);
    	}
-}
+};
 
 // Logic to find matching cards
 function findMatch() {
@@ -91,7 +91,6 @@ function findMatch() {
     	startTimer();
     	let first = openCard[0];
     	let second = openCard[1];
-    	//const startingTime = performance.now()
     if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
     	first.addClass("match");
     	second.addClass("match");
@@ -127,3 +126,10 @@ reloadPage();
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+
+ /*
+Falta adicionar animações às cartas quando são abertas, combinadas e rejeitadas.
+Falta adicionar modal que mostre os resultados: tempo final, número de estrelas e mensagem.
+Torná-lo responsivo.
+*/

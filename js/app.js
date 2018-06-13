@@ -84,6 +84,8 @@ function startTimer() {
 function popup() {
 	if (matchedCard.length === 16) {
 		$("div")[3].style.display = "block";
+		var record = $("div.timer").text();
+		$(".closer span:first").html(record);
 	}
 }
 

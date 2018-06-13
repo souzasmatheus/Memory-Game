@@ -16,13 +16,14 @@ let clicks = 0;
  *   - add each card's HTML to the page
  */
 
+// Update stars
 function stars() {
 	if (movements > 0 && movements < 19) {
     	return;
     } else if (movements >= 19 && movements <= 22) {
-    	$("#good i").removeClass("fa-star");
+    	$(".good i, i.good").removeClass("fa-star");
     } else if (movements > 22) {
-    	$("#average i").removeClass("fa-star");
+    	$(".average i, i.average").removeClass("fa-star");
     }
 }
 
@@ -77,7 +78,14 @@ function startTimer() {
        		$(".minutes").html(time(parseInt(sec / 60, 10)));
       	}, 1000);
    	}
-};
+}
+
+// Open pop-up
+function popup() {
+	if (matchedCard.length === 16) {
+		$("div")[3].style.display = "block";
+	}
+}
 
 // Logic to find matching cards
 function findMatch() {
@@ -98,6 +106,7 @@ function findMatch() {
     	openCard.pop(first);
     	matchedCard.push(second);
     	matchedCard.push(first);
+    	popup();
     } else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
     	setTimeout(function() {
     		first.toggleClass("open show")

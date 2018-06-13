@@ -146,7 +146,5 @@ reloadPage();
 
 
  /*
-Falta adicionar animações às cartas quando são abertas, combinadas e rejeitadas.
-Falta adicionar modal que mostre os resultados: tempo final, número de estrelas e mensagem.
 Torná-lo responsivo.
 */

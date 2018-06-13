@@ -110,10 +110,9 @@ h1 {
 }
 
 .score-panel .timer {
-    margin: 0;
-    padding-left: 50px;
+    margin: 0 auto;
+    padding-left: 17%;
     display: inline-block;
-    margin: 0 5px 0 0;
 }
 
 /*
@@ -136,6 +135,7 @@ h1 {
 
 .message h1 {
     margin: 0 auto;
+    font-size: 200%;
 }
 
 .closer {
@@ -152,4 +152,45 @@ h1 {
     cursor: pointer;
     width: 23px;
     margin: 0 auto;
+}
+
+/*
+ * Set media queries styles
+ */
+
+ @media only screen and (max-width: 770px) {
+    .score-panel {
+        width: 90%;
+    }
+
+    .deck {
+        width: 95%;
+        padding: 16px;
+        min-height: 100vmin;
+    }
+    
+    .deck .card {
+        width: 20vmin;
+        height: 20vmin;
+    }
+
+    .score-panel .timer {
+        padding-left: 30%;
+    }
+
+    .message {
+        width: 80vw;
+        bottom: 572px;
+        padding: 30px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .score-panel .timer {
+        padding-left: 15%;
+    }
+
+    .message {
+        bottom: 322px;
+    }
 }

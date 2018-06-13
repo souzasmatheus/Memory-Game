@@ -116,6 +116,10 @@ h1 {
     margin: 0 5px 0 0;
 }
 
+/*
+ * Styles for pop-up
+ */
+
 .message {
     width: 40%;
     height: 40%;
@@ -128,4 +132,24 @@ h1 {
     text-align: center;
     padding: 60px;
     border-radius: 8px;
+}
+
+.message h1 {
+    margin: 0 auto;
+}
+
+.closer {
+    margin-top: 0;
+}
+
+.further {
+    padding-top: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.restart {
+    cursor: pointer;
+    width: 23px;
+    margin: 0 auto;
 }

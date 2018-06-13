@@ -94,7 +94,7 @@ function findMatch() {
     // Show cards on click
     $(".card").on("click", function() {
     	if ($(this).hasClass("open show")) { return; }
-    	$(this).toggleClass("open show");
+    	$(this).toggleClass("open show animated pulse");
     	openCard.push($(this));
     	clicks += 1;
     	moves();
@@ -102,8 +102,8 @@ function findMatch() {
     	let first = openCard[0];
     	let second = openCard[1];
     if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
-    	first.addClass("match");
-    	second.addClass("match");
+    	first.toggleClass("match pulse flash");
+    	second.toggleClass("match pulse flash");
     	openCard.pop(second);
     	openCard.pop(first);
     	matchedCard.push(second);
@@ -111,13 +111,19 @@ function findMatch() {
     	popup();
     } else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
     	setTimeout(function() {
-    		first.toggleClass("open show")
+    		first.toggleClass("open show pulse shake")
     	}, 1000);
     	setTimeout(function() {
-    		second.toggleClass("open show")
+    		second.toggleClass("open show pulse shake")
     	}, 1000);
+    	setTimeout(function() {
+    		first.toggleClass("animated shake")
+    	}, 1500);
+    	setTimeout(function() {
+    		second.toggleClass("animated shake")
+    	}, 1500);
     	openCard.pop(second);
-    	openCard.pop(first);
+        openCard.pop(first);
     }
     })
 }

@@ -9,5 +9,3 @@ This is the result of my learning from Udacity's Fundamentals of Web Development
 The goal of the game is to match cards with their correspondent ones, that is, with the one card with the same image. The less moves you take, the better and the higher your star rate will be. Good luck!
 
 Play on:
-
-## Contributing

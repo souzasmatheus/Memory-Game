@@ -84,13 +84,16 @@ function findMatch() {
     // Show cards on click
     $(".card").on("click", function() {
     	if ($(this).hasClass("open show")) { return; };
+    	// Animate clicked card in case it isn't opened yet
     	$(this).toggleClass("open show animated pulse");
+    	// Send card to array to open cards for future use
     	openCard.push($(this));
     	clicks += 1;
     	moves();
     	startTimer();
     	let first = openCard[0];
     	let second = openCard[1];
+    	// Check if cards have same symbol based on the class of the <i> element
     	if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
     		first.toggleClass("match pulse flash");
     		second.toggleClass("match pulse flash");
@@ -98,7 +101,9 @@ function findMatch() {
     		openCard.pop(first);
     		matchedCard.push(second);
     		matchedCard.push(first);
+    		// Check if all cards have been matched already
     		popup();
+    	// In case cards don't match, add animation and then remove it
     	} else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
     		setTimeout(function() {
     			first.toggleClass("open show pulse shake")
@@ -112,6 +117,7 @@ function findMatch() {
     		setTimeout(function() {
     			second.toggleClass("animated shake")
     		}, 1500);
+    		// Drop cards from array of open cards
     		openCard.pop(second);
         	openCard.pop(first);
     	}

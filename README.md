@@ -1,20 +1,13 @@
 # Memory Game Project
 
-## Table of Contents
+## Introduction
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+This is the result of my learning from Udacity's Fundamentals of Web Development. This project combines knowledge of HTML, CSS, ECMAScript and jQuery which, put together, produce a classic memory game on a modern platform, be it a smartphone, a tablet or a desktop.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The goal of the game is to match cards with their correspondent ones, that is, with the one card with the same image. The less moves you take, the better and the higher your star rate will be. Good luck!
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Play on:
 
 ## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).

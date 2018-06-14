@@ -1,20 +1,10 @@
-/*
- * Create a list that holds all of your cards
- */
- // Global scope
+// Global scope
 const cards = ["fa-diamond", "fa-diamond", "fa-paper-plane-o", "fa-paper-plane-o", "fa-anchor", "fa-anchor", "fa-bolt",
  "fa-bolt", "fa-cube", "fa-cube", "fa-leaf", "fa-leaf", "fa-bicycle", "fa-bicycle", "fa-bomb", "fa-bomb"];
 let openCard = [];
 let matchedCard = [];
 let movements = 0;
 let clicks = 0;
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Update stars
 function stars() {
@@ -93,7 +83,7 @@ function popup() {
 function findMatch() {
     // Show cards on click
     $(".card").on("click", function() {
-    	if ($(this).hasClass("open show")) { return; }
+    	if ($(this).hasClass("open show")) { return; };
     	$(this).toggleClass("open show animated pulse");
     	openCard.push($(this));
     	clicks += 1;
@@ -101,30 +91,30 @@ function findMatch() {
     	startTimer();
     	let first = openCard[0];
     	let second = openCard[1];
-    if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
-    	first.toggleClass("match pulse flash");
-    	second.toggleClass("match pulse flash");
-    	openCard.pop(second);
-    	openCard.pop(first);
-    	matchedCard.push(second);
-    	matchedCard.push(first);
-    	popup();
-    } else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
-    	setTimeout(function() {
-    		first.toggleClass("open show pulse shake")
-    	}, 1000);
-    	setTimeout(function() {
-    		second.toggleClass("open show pulse shake")
-    	}, 1000);
-    	setTimeout(function() {
-    		first.toggleClass("animated shake")
-    	}, 1500);
-    	setTimeout(function() {
-    		second.toggleClass("animated shake")
-    	}, 1500);
-    	openCard.pop(second);
-        openCard.pop(first);
-    }
+    	if (openCard.length === 2 && first.children().hasClass(second.children().attr("class"))) {
+    		first.toggleClass("match pulse flash");
+    		second.toggleClass("match pulse flash");
+    		openCard.pop(second);
+    		openCard.pop(first);
+    		matchedCard.push(second);
+    		matchedCard.push(first);
+    		popup();
+    	} else if (openCard.length === 2 && !first.children().hasClass(second.children().attr("class"))) {
+    		setTimeout(function() {
+    			first.toggleClass("open show pulse shake")
+    		}, 1000);
+    		setTimeout(function() {
+    			second.toggleClass("open show pulse shake")
+    		}, 1000);
+    		setTimeout(function() {
+    			first.toggleClass("animated shake")
+    		}, 1500);
+    		setTimeout(function() {
+    			second.toggleClass("animated shake")
+    		}, 1500);
+    		openCard.pop(second);
+        	openCard.pop(first);
+    	}
     })
 }
 
@@ -132,19 +122,3 @@ function findMatch() {
 giveCards();
 findMatch();
 reloadPage();
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
-
- /*
-Torná-lo responsivo.
-*/

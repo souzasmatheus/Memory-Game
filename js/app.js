@@ -76,6 +76,7 @@ function popup() {
 		$("div")[3].style.display = "block";
 		var record = $("div.timer").text();
 		$(".closer span:first").html(record);
+        // Use window method to erase setInterval's function
         clearInterval(timer);
 	}
 }
